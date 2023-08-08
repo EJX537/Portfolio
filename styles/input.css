@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-item {
+    @apply p-2 flex items-center justify-center
+      hover:underline hover:font-semibold hover:bg-gray-200 rounded-3xl cursor-pointer transition-all;
+  }
+  .active-nav-item {
+    @apply font-bold underline pointer-events-none
+  }
+}
