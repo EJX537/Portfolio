@@ -902,6 +902,7 @@ name = "yew-app"
 version = "0.1.0"
 dependencies = [
  "gloo-console",
+ "js-sys",
  "serde-wasm-bindgen 0.4.5",
  "serde_json",
  "wasm-bindgen",
