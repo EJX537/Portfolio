@@ -1,6 +1,6 @@
 use yew::prelude::*;
-use wasm_bindgen::JsCast;
 use yew_router::prelude::*;
+use wasm_bindgen::JsCast;
 
 use crate::router::Routes;
 use crate::{components::util::{self}, UserContext};
@@ -13,6 +13,7 @@ pub fn app() -> Html {
   let user_context: UseReducerHandle<crate::UserInfo> = use_context::<UserContext>().unwrap();
   let page_val: String = user_context.page.to_owned();
 
+  // Handles the navigation on the toolbar
   let onclick_nav: Callback<MouseEvent> = Callback::from(move |event: MouseEvent| {
     let target: web_sys::EventTarget = event.target().unwrap();
     let element: web_sys::HtmlElement = target.dyn_into::<web_sys::HtmlElement>().unwrap();
@@ -23,11 +24,10 @@ pub fn app() -> Html {
       dark_mode: user_context.dark_mode.to_owned(),
     };
     user_context.dispatch(info);
-
   });
 
   html! {
-    <nav class="flex items-center max-h-12 mx-2 mb-3">
+    <nav class="flex items-center max-h-12 min-h-12 mx-2">
       <Link<Routes> to={Routes::Main}>
         <button class="h-full" id="Home" onclick={onclick_nav.clone()}>
           <div class="flex items-center justify-center mx-2 h-full">

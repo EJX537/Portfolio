@@ -5,7 +5,15 @@ module.exports = {
     "./index.html"
 ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "lg-Cultured": "#F5F5F5",
+        "lg-Lotion": "#FAFAFA",
+        "lg-Bright_Gray": "#ECECEC",
+        "lg-Gainsboro": "#DEDEDE",
+        "lg-Light_Gray": "#D4D4D4",
+      }
+    },
   },
   plugins: [],
 }

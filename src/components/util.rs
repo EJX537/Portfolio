@@ -35,27 +35,19 @@ pub mod util {
 }
 
 
-pub fn onwheel(window: &Window, to_nav: UseStateHandle<bool>) {
-    let counter: i32 = 0;
+pub fn onwheel(window: &Window, mut counter: i32, to_nav: UseStateHandle<bool>) {
     let closure: Closure<dyn FnMut(WheelEvent)> = Closure::wrap(Box::new(move |event: WheelEvent| {
         if event.delta_y() > 0.0 {
-            let mut counter_val: i32 = counter.clone();
-            counter_val += 1;
-            if counter_val >= 15 {
+            counter += 1;
+            if counter > 2 {
                 to_nav.set(true);
             }
+        } else {
+            counter = 0;
         }
+        log!("1");
     }) as Box<dyn FnMut(WheelEvent)>);
-
-    let reset_closure = Closure::wrap(Box::new(move || {
-        // let mut counter_value: i32 = *counter;
-        // counter_value = 0;
-    }) as Box<dyn Fn()>);
-
-    let _timeout_id: Result<i32, wasm_bindgen::JsValue> = window.set_timeout_with_callback_and_timeout_and_arguments_0( reset_closure.as_ref().unchecked_ref()
-        , 1000
-    );
+    
     window.set_onwheel(Some(closure.as_ref().unchecked_ref()));
     closure.forget();
-    reset_closure.forget();
 }
