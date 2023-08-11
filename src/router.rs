@@ -4,7 +4,7 @@ use yew_router::prelude::*;
 use crate::components::home::Main;
 use crate::components::about::About;
 use crate::components::projects::Projects;
-use crate::components::contact::Contact;
+use crate::components::contact::ContactPage;
 use crate::components::pagenotfound::Page404;
 
 
@@ -30,7 +30,7 @@ pub fn switch(route: Routes) -> Html {
     Routes::Main => html! { <Main/> },
     Routes::About => html! { <About/> },
     Routes::Projects => html! { <Projects/> },
-    Routes::Contact => html! { <Contact/> },
+    Routes::Contact => html! { <ContactPage/> },
     Routes::Root => todo!(),
     Routes::NotFound => html! { <Page404/> },
   }

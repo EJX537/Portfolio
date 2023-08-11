@@ -5,8 +5,6 @@ use wasm_bindgen::JsCast;
 use wasm_bindgen::prelude::Closure;
 use web_sys::Window;
 use gloo_console::log;
-use std::rc::Rc;
-use std::cell::RefCell;
 
 pub fn to_string<'a>(hmap: &'a HashMap<&'a str, &'a str>, key: &'a str) -> Option<&'a str> {
     if let Some(value) = hmap.get(key) {
@@ -51,3 +49,6 @@ pub fn onwheel(window: &Window, mut counter: i32, to_nav: UseStateHandle<bool>) 
     window.set_onwheel(Some(closure.as_ref().unchecked_ref()));
     closure.forget();
 }
+
+
+

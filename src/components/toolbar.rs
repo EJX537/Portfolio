@@ -30,8 +30,8 @@ pub fn app() -> Html {
     <nav class="flex items-center max-h-12 min-h-12 mx-2">
       <Link<Routes> to={Routes::Main}>
         <button class="h-full" id="Home" onclick={onclick_nav.clone()}>
-          <div class="flex items-center justify-center mx-2 h-full">
-          <img src="/img/github-mark.png" alt="place holder" class="h-10 object-cover" />
+          <div class="flex items-center justify-center mx-8 h-full">
+          <img src="" alt="place holder" class="h-10 w-10 object-cover" />
             <div class="pl-4">
               {"Eric Xie"}
             </div>
@@ -54,22 +54,10 @@ pub fn app() -> Html {
       </Link<Routes>>
 
       <Link<Routes> to={Routes::Contact}>
-        <button class={classes!("nav-item", util::util::either!(page_val == "Contact" => "active-nav-item"; ""))} id="Contact" onclick={onclick_nav}>
+        <button class={classes!("nav-item", "mr-10", util::util::either!(page_val == "Contact" => "active-nav-item"; ""))} id="Contact" onclick={onclick_nav}>
           {"Contact"}
         </button>
       </Link<Routes>>
-
-      <a href="https://github.com/EJX537" target="_blank" class="items-center justify-center flex">
-        <button class="font-sans mx-2">
-          <img src="/img/github-mark.png" alt="Github icon" class="h-10 object-cover" />
-        </button>
-      </a>
-
-      <a href="https://www.linkedin.com/in/ericjxie/" target="_blank" class="items-center justify-center flex">
-        <button class="ml-2">
-            <img src="/img/Linkedin.png" alt="Linkedin icon" class="h-10 object-cover items-center justify-center" />
-        </button>   
-      </a>
     </nav>
   }
 }
