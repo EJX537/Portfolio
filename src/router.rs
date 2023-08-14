@@ -8,7 +8,7 @@ use crate::components::contact::ContactPage;
 use crate::components::pagenotfound::Page404;
 
 
-#[derive(Debug, Clone, Copy, PartialEq, Routable)]
+#[derive(Debug, Clone, PartialEq, Routable)]
 pub enum Routes {
     #[at("/")]
     Main,
@@ -16,8 +16,8 @@ pub enum Routes {
     About,
     #[at("/contact")]
     Contact,
-    #[at("/projects")]
-    Projects,
+    #[at("/projects/:project")]
+    Projects { project: String },
     #[at("/~")]
     Root,
     #[not_found]
@@ -29,7 +29,7 @@ pub fn switch(route: Routes) -> Html {
   match route {
     Routes::Main => html! { <Main/> },
     Routes::About => html! { <About/> },
-    Routes::Projects => html! { <Projects/> },
+    Routes::Projects { project } => html! { <Projects path={project}/> },
     Routes::Contact => html! { <ContactPage/> },
     Routes::Root => todo!(),
     Routes::NotFound => html! { <Page404/> },

@@ -16,3 +16,4 @@ js-sys = "0.3"
 gloo-net = "0.2.4"
 serde = { version = "1.0.147", features = ["derive"] }
 wasm-bindgen-futures = "0.4.33"
+

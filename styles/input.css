@@ -12,7 +12,7 @@
   }
 
   .contact-box {
-    @apply flex w-1/2 pt-6 mt-2 mx-2 flex-col hover:bg-lg-Bright_Gray hover:rounded-md transition duration-75 ease-in-out
+    @apply flex w-full sm:w-1/2 pt-6 pb-6 mt-2 sm:mx-2 flex-col hover:bg-lg-Bright_Gray hover:rounded-md transition duration-75 ease-in-out px-2
   }
 
 }

@@ -1,12 +1,13 @@
 use crate::UserContext;
 use crate::UserInfo;
 use crate::router::Routes;
-use crate::components::util;
 
 use yew::prelude::*;
 use yew_router::prelude::*;
 use web_sys::Window;
+use crate::components::util;
 
+use gloo_console::log;
 
 #[function_component(Main)]
 pub fn app() ->Html {
@@ -19,18 +20,20 @@ pub fn app() ->Html {
     user_context.dispatch(info);
   });
 
+  // Window Size
+
   let window: Window = web_sys::window().unwrap();
   let to_nav: UseStateHandle<bool> = use_state(|| false);
-
+  let navigator: Navigator = use_navigator().unwrap();
   if *to_nav {
-    let _ = window.location().replace("projects");
+    navigator.push(&Routes::Projects{project: "".to_string()});
   }
   let counter: i32 = 0;
   util::onwheel(&window, counter, to_nav);
 
   html! {
     <div class="flex-1 flex-col flex">
-    
+
       <div class="items-center justify-center grid grid-cols-2 mt-auto mb-4">
         <div class="justify-center items-center flex">
           { "Home" }
@@ -40,7 +43,7 @@ pub fn app() ->Html {
         </div>
       </div>
 
-      <Link<Routes> to={Routes::Projects} classes="justify-center text-center mt-auto mb-4">
+      <Link<Routes> to={Routes::Projects{project: "~".to_string()}} classes="justify-center text-center mt-auto mb-4">
         <button class="items-center flex-col">
             {"Projects"}
             <div class="h-0 w-0 border-x-8 border-x-transparent border-b-[16px] border-b-black rotate-180 mx-auto"/>

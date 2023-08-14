@@ -2,15 +2,12 @@ use crate::UserContext;
 use crate::UserInfo;
 
 use gloo_net::http::Request;
-use js_sys::Iterator;
-use js_sys::Math::log;
 use yew::prelude::*;
 use yew::{function_component, html, Html, Properties};
-use gloo_console::log;
 use serde::Deserialize;
 
 #[derive(Debug, Clone, PartialEq, Deserialize)]
-pub struct Contact {
+struct Contact {
   service: String,
   image: String,
   title: String,
@@ -18,7 +15,7 @@ pub struct Contact {
 }
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct Contacts {
+struct Contacts {
   data: Vec<Contact>,
 }
 
@@ -37,7 +34,7 @@ fn info_instance(props: &ContactProp) -> Html {
         <div class="mr-2">
           {c.service} {":"}
         </div>
-        <a href={c.link} target="_blank" class="items-center justify-center flex hover:underline">
+        <a href={c.link} target="_blank" class="items-center justify-center flex group-hover:underline underline-offset-2">
           <button>
             {c.title}
           </button>
@@ -55,15 +52,16 @@ fn info_instance(props: &ContactProp) -> Html {
 
 #[function_component(ContactPage)]
 pub fn app() -> Html {
-  let user_context: UseReducerHandle<crate::UserInfo> = use_context::<UserContext>().unwrap();
+  let user_context: UseReducerHandle<UserInfo> = use_context::<UserContext>().unwrap();
   use_effect(move || {
     let info: UserInfo = UserInfo {
       page: "Contact".to_string(),
-      dark_mode: user_context.dark_mode.to_owned(),
+      dark_mode: user_context.clone().dark_mode.to_owned(),
     };
     user_context.dispatch(info);
   });
 
+  // Fetch contact information from Github
   let contacts: UseStateHandle<Contacts> = use_state(|| Contacts { data: vec![] });
   let contacts_val: UseStateHandle<Contacts> = contacts.clone();
   {
@@ -87,14 +85,16 @@ pub fn app() -> Html {
   }
 
   html! {
-    <div class="flex-1 flex flex-row">
-      <div class="flex-1 flex flex-row">
-        <div class="contact-box group">
+    <div class="flex flex-1">
+      <div class="flex flex-1 flex-col sm:flex-row">
+
+        <div class="contact-box group mb-8">
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Peronsal Contact"}
           </div>
           <InfoInstance contacts={contacts_val}/>
         </div>
+
         <div class="contact-box group">
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Social Media"}
@@ -102,6 +102,7 @@ pub fn app() -> Html {
           <div class="flex justify-center mt-6">
             {"Do Not Use"}
           </div>
+
         </div>
       </div>
     </div>

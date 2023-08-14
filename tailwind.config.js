@@ -12,6 +12,9 @@ module.exports = {
         "lg-Bright_Gray": "#ECECEC",
         "lg-Gainsboro": "#DEDEDE",
         "lg-Light_Gray": "#D4D4D4",
+      },
+      screens: {
+        'ss': '500px',
       }
     },
   },
