@@ -17,12 +17,11 @@ pub enum Routes {
     #[at("/contact")]
     Contact,
     #[at("/projects/:project")]
-    Projects { project: String },
+    Projects {project: String},
     #[at("/~")]
     Root,
-    #[not_found]
-    #[at("/404")]
-    NotFound,
+    #[at("/*path")]
+    NotFound {path: String},
 }
 
 pub fn switch(route: Routes) -> Html {
@@ -32,6 +31,6 @@ pub fn switch(route: Routes) -> Html {
     Routes::Projects { project } => html! { <Projects path={project}/> },
     Routes::Contact => html! { <ContactPage/> },
     Routes::Root => todo!(),
-    Routes::NotFound => html! { <Page404/> },
+    Routes::NotFound { path } => html! { <Page404 path={path}/> },
   }
 }

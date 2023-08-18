@@ -26,7 +26,7 @@ pub fn app() ->Html {
   let to_nav: UseStateHandle<bool> = use_state(|| false);
   let navigator: Navigator = use_navigator().unwrap();
   if *to_nav {
-    navigator.push(&Routes::Projects{project: "".to_string()});
+    navigator.push(&Routes::Projects{project: "~".to_string()});
   }
   let counter: i32 = 0;
   util::onwheel(&window, counter, to_nav);

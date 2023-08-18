@@ -193,7 +193,7 @@ fn dropdown_menu(props: &DropdownProps) -> Html{
 #[function_component(About)]
 pub fn app() -> Html {
   let user_context: UseReducerHandle<UserInfo> = use_context::<UserContext>().unwrap();
-  let window_size = util::use_window_size();
+  let window_size: UseStateHandle<util::WindowSize> = util::use_window_size();
   use_effect(move || {
     let info: UserInfo = UserInfo {
       page: "About".to_string(),

@@ -88,14 +88,14 @@ pub fn app() -> Html {
     <div class="flex flex-1">
       <div class="flex flex-1 flex-col sm:flex-row">
 
-        <div class="contact-box group mb-8">
+        <div class="contact-box group mb-2 hover:shadow-xl">
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Peronsal Contact"}
           </div>
           <InfoInstance contacts={contacts_val}/>
         </div>
 
-        <div class="contact-box group">
+        <div class="contact-box group mb-2 hover:shadow-xl">
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Social Media"}
           </div>

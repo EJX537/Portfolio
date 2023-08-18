@@ -1,0 +1,20 @@
+      <div class="h-[300px] w-[380px] hover:bg-lg-Light_Gray m-1 sm:m-4 rounded-md flex flex-row bg-lg-Gainsboro">
+        <div class=" w-3/5 p-2 flex">
+          <img src={"https://raw.githubusercontent.com/EJX537/portfolio_data/9d59fdd4183d253488d65ccced028f779cae526c/images/Linkedin.png"} alt="image preview" class=" h-full w-full block object-scale-down overflow-hidden"/>
+        </div>
+        <div class="p-2 flex flex-col relative w-2/5">
+          <div class="font-bold underline underline-offset-2 mb-4">
+            {sample_project.title}
+          </div>
+          <div class="text-ellipsis w-full overflow-hidden">
+            {sample_project.body}
+          </div>
+          <div class="absolute bottom-0 right-0 mr-4 mb-2">
+            <a href={sample_project.link} class="" target="_blank">
+              <button>
+                <img src="https://raw.githubusercontent.com/EJX537/portfolio_data/main/images/github-mark.png" alt="git-logo" class="h-10 w-10"/>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
