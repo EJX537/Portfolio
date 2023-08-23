@@ -5,9 +5,6 @@ use crate::router::Routes;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use gloo_console::log;
-
-
 #[derive(Properties, PartialEq)]
 pub struct Props {
   pub path: String

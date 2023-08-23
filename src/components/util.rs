@@ -1,31 +1,14 @@
 use yew::prelude::*;
-use std::collections::HashMap;
-use std::any::type_name;
 use wasm_bindgen::JsCast;
 use wasm_bindgen::prelude::Closure;
 use web_sys::Window;
 use web_sys::window;
-
-use gloo_console::log;
-
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct WindowSize {
     pub width: u32,
     pub height: u32
 }
-
-pub fn to_string<'a>(hmap: &'a HashMap<&'a str, &'a str>, key: &'a str) -> Option<&'a str> {
-    if let Some(value) = hmap.get(key) {
-        Some(*value)
-    } else {
-        None
-    }
-}
-
-pub fn type_of<T>(_: &T) -> &str {
-    type_name::<T>()
-  }
 
 pub mod util {
     macro_rules! either {

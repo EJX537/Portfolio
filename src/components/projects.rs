@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use crate::UserContext;
 use crate::UserInfo;
 use crate::router::Routes;
@@ -9,9 +7,10 @@ use crate::components::util;
 use yew::prelude::*;
 use yew_router::prelude::*;
 use gloo_net::http::Request;
-use gloo_console::log;
 use serde::Deserialize;
 use wasm_bindgen::JsCast;
+use std::collections::HashMap;
+
 
 #[derive(Properties, PartialEq)]
 pub struct Props {

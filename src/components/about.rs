@@ -5,7 +5,6 @@ use crate::components::util;
 use wasm_bindgen::JsCast;
 use yew::prelude::*;
 use gloo_net::http::Request;
-use gloo_console::log;
 use serde::Deserialize;
 use yew::functional::use_reducer;
 use std::rc::Rc;
@@ -59,7 +58,7 @@ impl Reducible for IdInfo {
 
 #[function_component(SkillInstance)]
 fn skill_instance(props: &Props) -> Html{
-  let dark_mode = props.dark_mode.clone();
+  let dark_mode: bool = props.dark_mode.clone();
   let height: u32 = props.window_size.height.clone();
   let width: u32 = props.window_size.width.clone();
   let page: UseStateHandle<(isize, isize)> = props.page.clone();

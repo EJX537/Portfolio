@@ -11,6 +11,7 @@ pub fn app() -> Html {
   let user_context: UseReducerHandle<UserInfo> = use_context::<UserContext>().unwrap();
   let dark_mode: bool = user_context.dark_mode;
   let user_context_clone = user_context.clone();
+  let user_context_clone2 = user_context.clone();
   let page_val: String = user_context.page.to_owned();
 
   // Handles the navigation on the toolbar
@@ -22,6 +23,16 @@ pub fn app() -> Html {
     };
     user_context.dispatch(info);
   });
+
+  let onclick_darkmode = Callback::from(move |_e: MouseEvent| {
+    let info: crate::UserInfo = crate::UserInfo {
+      page: user_context_clone2.page.to_owned(),
+      dark_mode: !user_context_clone2.dark_mode.to_owned(),
+      toggle_dropdown: user_context_clone2.toggle_dropdown.to_owned()
+    };
+    user_context_clone2.dispatch(info);
+  });
+
 
   html! {
     <nav class="flex items-center h-12 mx-2 my-4">
@@ -37,6 +48,10 @@ pub fn app() -> Html {
       </Link<Routes>>
 
       <div class=" flex-grow" />
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mr-2 hover:cursor-pointer hidden sm:block" onclick={onclick_darkmode}>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" class={util::util::either!(dark_mode == true => "block"; "hidden")}/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" class={util::util::either!(dark_mode == true => "hidden"; "block")} />
+      </svg>
 
       <Link<Routes> to={Routes::About}>
         <button class={classes!("nav-item", "hidden", "ss:block", util::util::either!(page_val == "About" => "active-nav-item"; ""), util::util::either!(dark_mode == true => "hover:bg-dg-Light_Gray"; "hover:bg-lg-Light_Gray"))} id="About">

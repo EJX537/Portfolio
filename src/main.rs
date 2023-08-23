@@ -11,8 +11,6 @@ use yew::functional::use_reducer;
 use std::rc::Rc;
 use yew_router::prelude::*;
 
-use gloo_console::log;
-
 #[derive(Debug, PartialEq, Clone)]
 pub struct UserInfo {
     pub page: String,

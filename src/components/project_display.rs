@@ -6,10 +6,7 @@ use crate::router::Routes;
 use wasm_bindgen::JsCast;
 use yew::prelude::*;
 use gloo_net::http::Request;
-use gloo_console::log;
 use serde::Deserialize;
-use yew::functional::use_reducer;
-use std::rc::Rc;
 use yew_router::prelude::*;
 
 use super::projects::ProjectList;
@@ -41,8 +38,6 @@ struct ImageProps {
 
 #[function_component(ImageList)]
 fn image_list(props: &ImageProps) -> Html{
-  let user_context: UseReducerHandle<UserInfo> = use_context::<UserContext>().unwrap();
-  let dark_mode: bool = user_context.dark_mode;
   let project = props.projectinfo.clone();
   let project_clone = project.clone();
   let image_list = project.project.images.clone();
