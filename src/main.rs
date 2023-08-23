@@ -1,9 +1,10 @@
 mod components;
 mod router;
 
-use crate::components::util::use_window_size;
+use crate::components::util;
 use crate::router::{switch, Routes};
 use crate::components::toolbar::Toolbar;
+use crate::components::sidebar::Sidebar;
 
 use yew::prelude::*;
 use yew::functional::use_reducer;
@@ -16,13 +17,14 @@ use gloo_console::log;
 pub struct UserInfo {
     pub page: String,
     pub dark_mode: bool,
+    pub toggle_dropdown: bool
 }
 
 impl Reducible for UserInfo {
     type Action = UserInfo;
 
     fn reduce(self: Rc<Self>, action: Self::Action) -> Rc<Self> {
-        UserInfo { page: action.page, dark_mode: action.dark_mode}.into()
+        UserInfo { page: action.page, dark_mode: action.dark_mode, toggle_dropdown: action.toggle_dropdown}.into()
     }
 }
 
@@ -36,15 +38,16 @@ pub fn app() -> Html {
     // Window Size
     let user_context: UseReducerHandle<UserInfo> = use_reducer(|| UserInfo {
         page: "Home".to_string(),
-        dark_mode: false,
+        dark_mode: true,
+        toggle_dropdown: false
     });
 
-
     html! {
-    <body class="h-screen w-screen sm:bg-lg-Cultured bg-blue-50 font-mono flex flex-col pt-3 subpixel-antialiased">
-        <ContextProvider<UserContext> context={user_context}>
+    <body class={classes!(util::util::either!(user_context.dark_mode == true => "bg-dg-Cultured text-lg-Light_Gray"; "bg-lg-Cultured text-black"), "h-screen", "w-screen", "font-mono", "flex", "flex-col", "subpixel-antialiased")}>
+        <ContextProvider<UserContext> context={user_context.clone()}>
             <BrowserRouter>
                 <Toolbar />
+                <Sidebar />
                 <Switch<Routes> render={switch} />
             </BrowserRouter>
         </ContextProvider<UserContext>>
@@ -55,4 +58,8 @@ pub fn app() -> Html {
 fn main() {
     yew::Renderer::<App>::new().render();
 }
+
+
+
+
 

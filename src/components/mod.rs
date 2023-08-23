@@ -6,3 +6,4 @@ pub mod toolbar;
 pub mod util;
 pub mod home;
 pub mod pagenotfound;
+pub mod sidebar;

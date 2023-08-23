@@ -1,5 +1,6 @@
 use crate::UserContext;
 use crate::UserInfo;
+use crate::components::util;
 
 use gloo_net::http::Request;
 use yew::prelude::*;
@@ -53,10 +54,12 @@ fn info_instance(props: &ContactProp) -> Html {
 #[function_component(ContactPage)]
 pub fn app() -> Html {
   let user_context: UseReducerHandle<UserInfo> = use_context::<UserContext>().unwrap();
+  let dark_mode: bool = user_context.dark_mode;
   use_effect(move || {
     let info: UserInfo = UserInfo {
       page: "Contact".to_string(),
-      dark_mode: user_context.clone().dark_mode.to_owned(),
+      dark_mode: user_context.dark_mode.to_owned(),
+      toggle_dropdown: user_context.toggle_dropdown.to_owned()
     };
     user_context.dispatch(info);
   });
@@ -88,14 +91,14 @@ pub fn app() -> Html {
     <div class="flex flex-1">
       <div class="flex flex-1 flex-col sm:flex-row">
 
-        <div class="contact-box group mb-2 hover:shadow-xl">
+        <div class={classes!(util::util::either!(dark_mode == true => "hover:bg-dg-Bright_Gray"; "hover:bg-lg-Bright_Gray"), "contact-box", "group", "mb-2", "hover:shadow-xl")}>
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Peronsal Contact"}
           </div>
           <InfoInstance contacts={contacts_val}/>
         </div>
 
-        <div class="contact-box group mb-2 hover:shadow-xl">
+        <div class={classes!(util::util::either!(dark_mode == true => "hover:bg-dg-Bright_Gray"; "hover:bg-lg-Bright_Gray"), "contact-box", "group", "mb-2", "hover:shadow-xl")}>
           <div class="flex justify-center group-hover:font-bold group-hover:underline underline-offset-4">
             {"Social Media"}
           </div>

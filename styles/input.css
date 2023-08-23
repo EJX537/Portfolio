@@ -5,14 +5,14 @@
 @layer components {
   .nav-item {
     @apply p-2 flex items-center justify-center
-      hover:underline hover:font-semibold hover:bg-gray-200 rounded-3xl cursor-pointer transition-all;
+      hover:underline hover:font-semibold rounded-3xl cursor-pointer transition-all;
   }
   .active-nav-item {
     @apply font-bold underline pointer-events-none underline-offset-[6px] 
   }
 
   .contact-box {
-    @apply flex w-full sm:w-1/2 pt-6 pb-6 mt-2 sm:mx-2 flex-col hover:bg-lg-Bright_Gray hover:rounded-md transition duration-75 ease-in-out px-2
+    @apply flex w-full sm:w-1/2 pt-6 pb-6 mt-2 sm:mx-2 flex-col hover:rounded-md transition duration-75 ease-in-out px-2
   }
 
 }

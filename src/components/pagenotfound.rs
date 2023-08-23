@@ -25,7 +25,8 @@ pub fn app(props: &Props) ->Html {
     if path == "projects" {
       let info: UserInfo = UserInfo {
         page: "Projects".to_string(),
-        dark_mode: user_context.clone().dark_mode.to_owned(),
+        dark_mode: user_context.dark_mode.to_owned(),
+        toggle_dropdown: user_context.toggle_dropdown.to_owned()
       };
       user_context.dispatch(info);
       navigator.push(&Routes::Projects{project: "~".to_string()});
