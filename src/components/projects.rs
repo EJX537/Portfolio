@@ -164,7 +164,7 @@ pub fn app(props: &Props) -> Html {
 
       <div class="w-3/5 h-full relative hidden md:flex">
         <div class="w-[90%] h-[75%] bottom-0 left-0 absolute pr-2 pt-2 rounded-r-xl overflow-hidden shadow-xl">
-          <img src={hover_image_val.clone()} alt="" class={classes!(util::util::either!(hover_image_val == "" => "hidden"; "block"), "w-full", "h-full", "object-contain", "bg-lg-Cultured", "rounded-r-xl")}/>
+          <img src={hover_image_val.clone()} alt="" class={classes!(util::util::either!(hover_image_val == "" => "hidden"; "block"), "w-full", "h-full", "object-contain", util::util::either!(user_context_clone.dark_mode == true => "bg-dg-Culture"; "bg-lg-Cultured"), "rounded-r-xl")}/>
         </div>
       </div>
 
