@@ -29,7 +29,7 @@ pub fn onwheel(window: &Window, mut counter: i32, to_nav: UseStateHandle<bool>) 
     let closure: Closure<dyn FnMut(WheelEvent)> = Closure::wrap(Box::new(move |event: WheelEvent| {
         if event.delta_y() > 0.0 {
             counter += 1;
-            if counter > 2 {
+            if counter == 1 {
                 to_nav.set(true);
             }
         } else {

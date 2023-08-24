@@ -38,7 +38,7 @@ pub fn app() ->Html {
           <span class="font-bold p-2 text-lg">
             { "Hello, I'm Eric."}
           </span>
-          <span class={classes!(util::util::either!(user_context_clone.dark_mode == true => "bg-black text-lg-Cultured"; "bg-black text-dg-Cultured"), "font-black", "p-2", "rounded-sm", "text-xl")}>
+          <span class={classes!(util::util::either!(user_context_clone.dark_mode == true => "bg-black text-lg-Cultured"; "bg-white text-dg-Cultured"), "font-black", "p-2", "rounded-sm", "text-xl")}>
             {"I am a software developer." }
           </span>
         </div>
