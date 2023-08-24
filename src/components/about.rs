@@ -118,7 +118,7 @@ fn skill_instance(props: &Props) -> Html{
           util::util::either!(dark_mode == true => "bg-dg-Bright_Gray hover:bg-dg-Gainsboro"; "bg-lg-Bright_Gray hover:bg-lg-Gainsboro"),
           "flex", "flex-col", "m-2", "p-2", "rounded-lg", "overflow-hidden", "group", "sm:max-h-[260px]", "2xl:max-h-max")}>
           <div class="justify-evenly flex group-hover:font-bold group-hover:underline underline-offset-4 items-end">
-            <img src={e.clone().image} alt={e.clone().placeholder} class="h-[40px] w-[40px] object-cover" />
+            <img src={e.clone().image} alt={e.clone().placeholder} class={classes!(util::util::either!(dark_mode == true => "invert"; "invert-0"), "h-[40px]", "w-[40px]", "object-cover")} />
               {e.clone().skill}
           </div>
           <div class="text-sm p-2">
