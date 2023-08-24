@@ -312,7 +312,7 @@ pub fn app() -> Html {
         <div class="flex p-4 sm:w-[55%] items-center justify-center leading-10 text-center sm:text-start">
           <div>
             <span>
-              {"My name is Eric Xie and I am a 4th year Computer Engineering Student at the University of Santa Cruz. And here are my skills and "}
+              {"My name is Eric Xie and I am a 4th year Computer Engineering Student at the University of California, Santa Cruz. And here are my skills and "}
             </span>
             <a href="https://ejx537.github.io/portfolio_data/Resume.pdf" target="_blank">
               <button class="text-2xl underline underline-offset-2 font-black">
