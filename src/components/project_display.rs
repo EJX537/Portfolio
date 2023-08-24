@@ -116,7 +116,7 @@ pub fn project_display(props: &Props) -> Html{
       let display_project: UseStateHandle<ProjectDisplayInfo> = display_project.clone();
         
         wasm_bindgen_futures::spawn_local(async move {
-          let url = format!("https://assets.ericjxie.com/projects/{}", path_clone2);
+          let url = format!("https://assets.ericjxie.com/projects/{}.json", path_clone2);
           match Request::get(&url).send().await {
             Ok(response) => {
               if response.ok() {
