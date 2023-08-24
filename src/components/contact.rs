@@ -71,7 +71,7 @@ pub fn app() -> Html {
   use_effect_with_deps(move |_| {
     let contacts: UseStateHandle<Contacts> = contacts.clone();
     wasm_bindgen_futures::spawn_local(async move {
-      let fetched_contacts: Vec<Contact> = Request::get("https://raw.githubusercontent.com/EJX537/portfolio_data/main/contacts.json")
+      let fetched_contacts: Vec<Contact> = Request::get("https://assets.ericjxie.com/contacts.json")
         .send()
         .await
         .unwrap()

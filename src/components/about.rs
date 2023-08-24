@@ -228,7 +228,7 @@ pub fn app() -> Html {
     let skill_categories: UseStateHandle<Categories> = skill_categories.clone();
 
     wasm_bindgen_futures::spawn_local(async move {
-      match Request::get("https://raw.githubusercontent.com/EJX537/portfolio_data/main/skills/skills.json").send().await {
+      match Request::get("https://assets.ericjxie.com/skills/skills.json").send().await {
         Ok(response) => {
           if response.ok() {
             let fetched_skill: Vec<Skill> = response
@@ -244,7 +244,7 @@ pub fn app() -> Html {
 
 
     wasm_bindgen_futures::spawn_local(async move {
-      match Request::get("https://raw.githubusercontent.com/EJX537/portfolio_data/main/skills/skill_categories.json").send().await {
+      match Request::get("https://assets.ericjxie.com/skills/skill_categories.json").send().await {
         Ok(response) => {
           if response.ok() {
             let fetched_skill_categories: Vec<String> = response
@@ -306,7 +306,7 @@ pub fn app() -> Html {
       <div class="flex flex-col sm:flex-row sm:m-4 md:h-2/5 lg:h-2/5 xl:3/5 items-center justify-center">
 
         <div class="items-center justify-center sm:w-[45%] flex overflow-hidden">
-          <img src="https://raw.githubusercontent.com/EJX537/portfolio_data/9d59fdd4183d253488d65ccced028f779cae526c/images/Linkedin.png" alt="place holder" class=" h-[200px] p-4 object-cover" />
+          <img src="https://assets.ericjxie.com/image_self.png" alt="place holder" class=" h-[200px] p-4 object-cover" />
         </div>
 
         <div class="flex p-4 sm:w-[55%] items-center justify-center leading-10 text-center sm:text-start">

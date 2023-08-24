@@ -112,7 +112,7 @@ pub fn app(props: &Props) -> Html {
     let projects: UseStateHandle<ProjectList> = projects.clone();
 
     wasm_bindgen_futures::spawn_local(async move {
-      match Request::get("https://raw.githubusercontent.com/EJX537/portfolio_data/main/projects/projects.json").send().await {
+      match Request::get("https://assets.ericjxie.com/projects/projects.json").send().await {
         Ok(response) => {
           if response.ok() {
             let fetched_projects = response
