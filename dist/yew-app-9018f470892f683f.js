@@ -1003,7 +1003,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('yew-app-143e7c4da9fb637d_bg.wasm', import.meta.url);
+        input = new URL('yew-app-9018f470892f683f_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
