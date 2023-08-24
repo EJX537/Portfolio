@@ -173,7 +173,7 @@ fn dropdown_menu(props: &DropdownProps) -> Html{
   }
 
   html! {
-    <div class="flex justify-center font-bold my-6 ">
+    <div class="flex justify-center font-bold my-2 sm:my-6">
       <div class="flex">
         {"My"} 
         <div class="relative">
