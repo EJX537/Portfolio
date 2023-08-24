@@ -215,7 +215,7 @@ pub fn app() -> Html {
   let pages_clone: UseStateHandle<(isize, isize)> = pages.clone();
   let pages_clone2: UseStateHandle<(isize, isize)> = pages.clone();
 
-  // Fetch information from Github
+  // Fetch information from website
   let skills: UseStateHandle<Skills> = use_state(|| Skills { data: vec![] });
   let skills_vals: UseStateHandle<Skills> = skills.clone();
   

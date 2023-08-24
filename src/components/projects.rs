@@ -100,7 +100,7 @@ pub fn app(props: &Props) -> Html {
     };
     user_context.dispatch(info);
   });
-  // Fetch information from Github
+  // Fetch information from website
   let projects: UseStateHandle<ProjectList> = use_state(|| {
     ProjectList {
       projects: vec![Project{ project_display: "Portifolio Website V2".to_string(), project_nav: "portfolio_v2".to_string(), preview_images: vec![] }]
