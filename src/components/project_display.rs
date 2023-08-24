@@ -146,7 +146,7 @@ pub fn project_display(props: &Props) -> Html{
           <div class="flex h-full items-center ml-auto">
             <a href={display_project_clone.project.link.clone()} target="_blank" class="h-full">
               <button class="h-full">
-                <img src="https://raw.githubusercontent.com/EJX537/portfolio_data/main/images/github-mark.png" alt=""
+                <img src="https://assets.ericjxie.com/images/github-mark.png" alt=""
                   class={classes!(util::util::either!(dark_mode == true => "invert"; "invert-0"), "h-[90%]", "mr-2")}/>
               </button>
             </a>
