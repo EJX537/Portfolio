@@ -69,7 +69,7 @@ fn skill_instance(props: &Props) -> Html{
   let amount: isize;
   
   if width > 1535 {
-    if height > 1100 {
+    if height > 1299 {
       amount = 12;
     } else {
       amount = 6
@@ -302,11 +302,11 @@ pub fn app() -> Html {
   }); 
 
   html! {
-    <div class="flex flex-1 flex-col h-full w-screen">
-      <div class="flex flex-col sm:flex-row sm:m-4 md:h-2/5 lg:h-2/5 xl:3/5 items-center justify-center">
+    <div class="flex flex-1 flex-col h-full w-screen overflow-hidden">
+      <div class="flex flex-col sm:flex-row sm:my-4 md:h-2/5 lg:h-2/5 xl:h-3/5 items-center justify-center">
 
-        <div class="items-center justify-center sm:w-[45%] flex overflow-hidden">
-          <img src="https://assets.ericjxie.com/images/image_self.png" alt="place holder" class=" h-[200px] p-4 object-cover" />
+        <div class="items-center justify-center sm:w-[40%] flex overflow-hidden w-full h-full">
+          <img src="https://assets.ericjxie.com/images/image_self.png" alt="place holder" class="w-[90%] h-[150px] sm:h-full p-4 object-contain" />
         </div>
 
         <div class="flex p-4 sm:w-[55%] items-center justify-center leading-10 text-center sm:text-start">
