@@ -137,8 +137,6 @@ fn skill_instance(props: &Props) -> Html{
   }
 }
 
-
-
 #[derive(Properties, PartialEq)]
 struct DropdownProps {
   categories: UseStateHandle<Categories>,
