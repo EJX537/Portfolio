@@ -312,7 +312,7 @@ pub fn app() -> Html {
             <span>
               {"My name is Eric Xie and I am a 4th year Computer Engineering Student at the University of California, Santa Cruz. And here are my skills and "}
             </span>
-            <a href="https://resume-builder.ericjxie.com/?loadReferenceEricJXieFromRecent=true" target="_blank">
+            <a href={util::util::either!(window_size.height >= 874 => "https://resume-builder.ericjxie.com/?loadReferenceEricJXieFromRecent=true"; "https://assets.ericjxie.com/Resume.pdf")} target="_blank">
               <button class="text-2xl underline underline-offset-2 font-black">
                 {"Resume"}
               </button>
